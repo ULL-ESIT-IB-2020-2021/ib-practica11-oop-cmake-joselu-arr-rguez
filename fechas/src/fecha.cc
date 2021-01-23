@@ -5,28 +5,50 @@
 using namespace std;
 
 
-Date :: Date(int year, int month, int day) {
-
-SetDate(year, month, day);
-
-}
-
-
-void Date :: SetDate(int year, int month, int day) {
-
-year_ = year;
-
-month_ = month;
-
-day_ = day;
-
-
-}
-
 
 void Date :: Print() {
+ofstream fichero_salida{file_, ios::app};
 
-cout << day_ << "/" << month_ << "/" << year_ << "\n";
+fichero_salida << day_ << '/' << month_ << '/' << year_ << '/' << "\n";
 
 
+}
+
+bool  Date :: LeapYear () {
+
+  if (year_ % 4 == 0) {
+
+    return true;
+
+  }  
+  
+  else {
+
+    return false;
+
+  }
+
+  
+
+}
+
+void Date::NextDate() {
+
+  day_++;
+
+  if (day_ > 31) {
+
+    month_++;
+
+    Date::SetDay(1);
+
+  }
+
+  if (month_ > 12) {
+
+    year_++;
+
+    Date::SetMonth(1);
+
+}
 }

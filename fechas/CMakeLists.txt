@@ -44,20 +44,20 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 add_library(tools src/tools.cc)
 
 # Adds an executable target called "fechas" to be built from the source files listed in the command invocation.
-add_executable(fechas
+add_executable(fecha
     src/fecha.h
     src/fecha.cc
     src/fechas.cc)
 
 # tell the linker to bind these objects together
 # It's important to place target_link_libraries after the add_executable and find_package lines, so all linked components are known.
-target_link_libraries(fechas tools)
+target_link_libraries(fecha tools)
 
 # Add expected compiler features to a target.
-target_compile_features(fechas PRIVATE cxx_std_14)
+target_compile_features(fecha PRIVATE cxx_std_14)
 
 # Add compile options to a target.
-target_compile_options(fechas PRIVATE -Wall -Wextra -Wpedantic)
+target_compile_options(fecha PRIVATE -Wall -Wextra -Wpedantic)
 
 
 ############################################################

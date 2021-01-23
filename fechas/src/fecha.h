@@ -1,32 +1,55 @@
+#include <iostream>
+
+#include <string>
+
+#include <fstream>
+
+
+
 #ifndef DATE_H
 
 #define DATE_H
 
-
+using namespace std;
 
 class Date {
 
 
 private : 
 
-int year_;
+int year_{0};
 
-int month_;
+int month_{0};
 
-int day_;
+int day_{0};
 
+string file_{"sample.txt"};
 
 public :
 
-Date() = default;
+void SetDay(int value){
+  day_ = value;
+}
 
-Date(int year, int month, int day);
+void SetMonth(int value){
+  month_ = value;
+}
+
+void SetYear(int value){
+  year_ = value;
+}
+
+void SetFile(string fichero_salida){
+  file_ = fichero_salida;
+}
+
+
 
 void Print();
 
-void SetDate(int year, int month, int day);
+bool LeapYear ();
 
-bool LeapYear (int year);
+void NextDate();
 
 
 int GetYear() {
